@@ -61,12 +61,12 @@ Question will be asked during the experiment to make the user accustomed to the 
 
 Sr. No |	Learning Objective	| Task to be performed by <br> the student in the simulator | Assessment Questions as per LO & Task
 :--|:--|:--|:-:
-1.| Students will be able to identify the apparatus and reagents  being used in the experiment. | Student has to select the  required apperatus and  reagents from the list display by the simulator. | What is the weight of CuSO4 has been taken to prepare the solution ?<br> A.0.4g<br>B. 0.5g<br>C. 0.2g<br>D. 0.45g 
-2.| Students will be able to describe  the "preparation of sample" for the experiment. | Student has to prepare the sample using reagents. | Why concentrated H2S04 added? A. It behave as much better conductor <br> B. To prevent precipitation of Cu(OH)2 <br> C. To get the right experimental value <br> D. None of these 
-3.| Students will be able to Apply the experimental conditions by placing sample and setting maximum wavelength in spectro calorimeter. | Student has to place the sample and set the maximum wavelength in spectrocolorimeter. | What  is the maximum wavelenght at which experiment is being performed? <br> A 48 nm <br> B 480 mm <br> C 480 nm <br> D. none of the above.
-4.| Student will able to perform experiment and record the reading for further calculation| Student will use the spectrocolorimeter and record the reading.  |  What is the mean of the optical densities of all the samples ? <br> A. 0.275 <br> B. 0.32 <br> C. 0.5 <br>  D. 1.0  <br>
-5.| Students will be able to sketch the calibration graph. | Student has to press the "plot graph" button . |  Is the plotted graph is straight line? (Yes/No).
-6.| Students will be able to determine the concentration of copper in water sample. | Student has to press on "show result" button. |Choose the correct formula? <br> A. x(calculated from graph) X wt. of Cu/wt. of CuSO4 <br> B. x(calculated from graph) X wt. of Cu/wt. of CuSO4.5H2O? <br>
+1.| Students will be able to identify the apparatus and reagents  being used in the experiment. | Student has to select the  required apperatus and  reagents from the list display by the simulator. | What is the weight of CuSO4 has been taken to prepare the solution ?<br> A.0.4g<br>B. 0.5g<br><b>C. 0.2g</b><br>D. 0.45g 
+2.| Students will be able to describe  the "preparation of sample" for the experiment. | Student has to prepare the sample using reagents. | Why concentrated H2S04 added? A. It behave as much better conductor <br><b> B. To prevent precipitation of Cu(OH)2 <b><br> C. To get the right experimental value <br> D. None of these 
+3.| Students will be able to Apply the experimental conditions by placing sample and setting maximum wavelength in spectro calorimeter. | Student has to place the sample and set the maximum wavelength in spectrocolorimeter. | What  is the maximum wavelenght at which experiment is being performed? <br> A 48 nm <br> B 480 mm <br><b> C 480 nm</b> <br> D. none of the above.
+4.| Student will able to perform experiment and record the reading for further calculation| Student will use the spectrocolorimeter and record the reading.  |  What is the mean of the optical densities of all the samples ? <br><b> A. 0.275 </b><br> B. 0.32 <br> C. 0.5 <br>  D. 1.0  <br>
+5.| Students will be able to sketch the calibration graph. | Student has to press the "plot graph" button . |  Is the plotted graph is straight line? <br><b>A.Yes</b><br>B.No
+6.| Students will be able to determine the concentration of copper in water sample. | Student has to press on "show result" button. |Choose the correct formula? <br> A. x(calculated from graph) X wt. of Cu/wt. of CuSO4 <br> <b>B. x(calculated from graph) X wt. of Cu/wt. of CuSO4.5H2O?</b> <br>
  
 
 
