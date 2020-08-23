@@ -3,13 +3,13 @@
 
 <br>
 <br>
-<b> Determination of copper by Spectrocolorimeter.<a name="top"></a> <br>
+<b> Determination of copper by Spectrocolorimeter.<a name="top"></a></b> <br>
 </p>
 
-<b>Discipline | <b>chemical science
+<b>Discipline | <b>chemical science</b>
 :--|:--| 
-<b> Lab | <b> chemistry Lab.
-<b> Experiment| <b> Determination of copper by Spectrocolorimeter.
+  <b> Lab | <b> chemistry Lab.</b>
+    <b> Experiment| <b> Determination of copper by Spectrocolorimeter.</b>
 
 
 
