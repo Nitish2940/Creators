@@ -68,7 +68,7 @@ Fig.<img src="images\img1.png" alt="start" width="900" height="600">
    
   2.5 Allow pitfalls:**
 
-This pitfall does not mean wrong answer and retrying . It is designed to clear misconceptions or incorrect knowledge .
+This pitfall does not mean wrong answer and retrying . It is designed to clear misconceptions or incorrect knowledge .<br>
 **2.5 Conclusion**
 
 The time required to recall the apparatus & reagents and understand the procedure of the experiment is 5-7 minutes. It will take another 5 min to standard solution. Data recording will take 5 min. filling reading of optical densities in the table and plotting calibrated graph will take 3-5min. , result and assessment question will also take 5 min. Hence total time in performing the experiment will be almost 30 min.
