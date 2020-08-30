@@ -81,3 +81,9 @@ The time required to recall the apparatus & reagents and understand the procedur
 
 **a)**  concentration of copper = Test OD/Std OD * Std Concentration
 
+**2.7 StoryBoard**
+<img src="images/1.png"><img src="images/appratus.png"><br>
+<img src="images/dip.png"><img src="images/i3.png"><br>
+<img src="images/img1.png"><img src="images/pour.png"><br>
+<img src="images/pour4.png"><img src="tplaced.png"><br>
+<img src="images/graph.PNG"><img src="table.PNG">
