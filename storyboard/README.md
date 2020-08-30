@@ -66,7 +66,10 @@ Fig.<img src="images\img1.png" alt="start" width="900" height="600">
       
    
    
-  2.5 Allow pitfalls:**
+  **2.5 Allow pitfalls:**
+  1. User has to select 2.5, 5.0, 7.5 and 10ml of sample for measuring optical densities, if  selection is wrong or any volume has missed by user then graph will not be straight line. So instruction has given at wrong selection to correct it at the moment.
+
+2. If user enter wrong reading or changes sequence in which reading has been taken then graph will change and instruction will popup to correct the reading
 
 This pitfall does not mean wrong answer and retrying . It is designed to clear misconceptions or incorrect knowledge .<br>
 **2.5 Conclusion**
