@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>SOLVE</title>
+    <link rel="stylesheet" href="css/index.css" />
+      <link rel="stylesheet" href=" http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/functions.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+     <script src="js/graph.ob.js"></script>
+     <script src="js/graph_line_use.ob.js"></script>
+    <script>
+    var mainsubscreen=0;
+    var temp=0;
+
+    </script>
+    <style>
+    .popup
+    {
+    border-radius:5px;
+    background-color:black;
+    color:white;
+    padding:5px;
+    }
+    .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    }
+    .tooltip .tooltiptext {
+    left:40px;
+    visibility: hidden;
+    width: 500px;
+    background-color: black;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px 10px 10px 10px;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 100;
+    }
+    .tooltip:hover .tooltiptext {
+    visibility: visible;
+    }
+    </style>
+  </head>
+  <body style="margin:0; font-family:verdana;">
+
+
+  	<!--   Question Answer Code   -->
+
+
+   
+
+
+      <div id="mainscreen">
+           <div id="title"><h3>ESTIMATION of copper(ii) by spectrocolorimetry</h3></div>
+           <div class="mainsubscreen" id="frame0" >
+                <h4 class="incanvas">Aim:</h4>
+                <p class="incanvas" style="font-size:14px;">To verify the Beer-Lamberts law and estimation of copper (II) in the given solution by spectrocolorimetry.</p><br/>
+                <h4 class="incanvas">Apparatus used:</h4>
+                <p class="incanvas" style="font-size:14px;">Calorimeter, Conical flask, Test tube, Beaker, Dropper etc.</p></br>
+                &nbsp;<span class="tooltip" style="border-bottom:1px dotted; position:absolute; top:140px; text-align:justify;"><strong>Solutions used</strong>
+                <span  class="tooltiptext" style=" font-size:14px;">Ethyl Diamine Tetra-Acetic Acid (EDTA) solution, Water sample, Calcium carbonate solution, Ammonia buffer solution, Eriochrome Black T (EBT) as indicator</span></span>
+               <span class="tooltip" style="border-bottom:1px dotted ; color:blue; position:absolute; left:170px; top:140px; text-align:justify;"><strong>Description</strong>
+               <span  class="tooltiptext" style=" font-size:14px;"><strong style="color:red;">According to Beer-Lamberts law</strong>  the optical density of absorbance of a solution of concentration ‘c’ mol dm-3 placed in a cell of ‘b’ cm width is given by  </br> <pre>          A = εbc </pre>where ε is called the molar absorption coefficient or molar extinction coefficient. The absorbance A is defined as<br><strong> <span style="color:blue;">A = log (I0/I) </span></strong>.</br>where I<sub>0</sub> and I represents the intensities of incident and transmitted radiations<strong> <span style="color:blue;"> since the optical density is linearly proportional to the concentration of the solution, a linear plot is expected for absorbance Vs concentration.  </span></strong>.</span></span>
+
+              <!-- Table-->
+
+               <svg style="position:absolute; left:170px; top:335px; width: 562px" title="Table" >
+		          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+		          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+		          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+		          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+		          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+		          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+              </svg>
+              <img style="position:absolute; left:10px; top:172.5px;" title="" src="images/human.png" />
+
+             <!--Testtube-->
+              <svg title="Testtube" style="position:absolute; left:320px; top:330px; width:80px ;height: 80px; transform: rotate(90deg);" >
+		          <ellipse cx="15" cy="15" rx="6" ry="4" style="fill:white;stroke:black;stroke-width:1"/>
+		          <line x1= 9.2 y1=15 x2=9.2 y2=65 style="fill:white;stroke:black;stroke-width:1"/>
+		          <line x1= 20.8 y1=15 x2=20.8 y2=65 style="fill:white;stroke:black;stroke-width:1"/>
+		          <rect x=10 y=19 height= 49 width=10 style="fill:white;stroke:black;stroke-width:1;z-index: 1;box-shadow: 0 3px 5px rgba(0,0,0,0.3);"/>
+		          <path d="M 9 65 q 6 10  11.5 0   " style="fill:white;stroke:black;stroke-width:1"/>
+              </svg>
+
+             <!--Calorimeter-->
+              <svg style="position:absolute; left:180px; top:280px; width:150px; height: 100px"  title="Calorimeter">
+		         <polyline points="37.5,9.25 111.25,9.25 124,36.25 27.25,36.25 37.5,9.25 " style="fill:#ffffba;stroke:black;stroke-width:1"/>
+		         <polyline points="27.25,36.25 15.25,88.25 132.25,88.25  124,36.25" style="fill:yellow;stroke:black;stroke-width:1"/>
+		         <polyline points="31.25,41 21.25,84.25 128.25,84.25  120,41 31.25,41" style="fill:white;stroke:black;stroke-width:1"/>
+		         <circle cx="90" cy="23" r="10" style="fill:black;stroke:black;stroke-width:1"/>
+		         <circle cx="90" cy="23" r="7" style="fill:white;stroke:black;stroke-width:0.8"/>
+		         <ellipse cx="63" cy="57" rx="32" ry="13" style="fill:grey;stroke:black;stroke-width:0.8"/>
+		         <rect x=38 y=52 width=15 height=7 style="fill:white;stroke:black;stroke-width:0.8"/>
+		         <rect x=72 y=52 width=15 height=7 style="fill:white;stroke:black;stroke-width:0.8"/>
+		         <rect x=30 y=75 width=7 height=7 style="fill:black;stroke:black;stroke-width:0.5"/>
+		         <rect x=42 y=75 width=7 height=7 style="fill:black;stroke:black;stroke-width:1"/>
+		         <rect x=54 y=75 width=7 height=7 style="fill:black;stroke:black;stroke-width:1"/>
+		         <rect x=66 y=75 width=7 height=7 style="fill:black;stroke:black;stroke-width:1"/>
+		         <rect x=80 y=72 width=9 height=9 style="fill:red;stroke:black;stroke-width:1"/>
+		         <rect x=100 y=47 width=17 height=30 style="fill:none;stroke:black;stroke-width:1"/>
+		         <text x=100.7 y=52 style="font-size: 20%;"> Instructions</text>
+		         <text x=100.7 y=59 style="font-size: 60%;"> 1..</text>
+		         <text x=100.7 y=67 style="font-size: 60%;"> 2..</text>
+               </svg>
+
+
+               <img style="position:absolute; left:330px; top:359px; width:55px ;height: 15px " title="Droper" src="images/dropper.png" />
+		       <img style="position:absolute; left:400px; top:300px; width:55px" title="Beaker" src="images/beaker.png" />
+		       <img style="position:absolute; left:460px; top:276.5px; width:45px;" title="Conical flask" src="images/conicalflask.png" />
+
+             <!--CuSO4 bottle-->
+               <svg style="position:absolute; left:480px; top:230.5px; width:100px;"  title="CuSO4" >
+		            <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		           <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+		           <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+		           <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		           <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		           <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		           <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		           <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		           <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		           <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		           <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		           <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		           <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		           <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		               <text x=44 y=87 style="font-size: 80%;"> CuSO</text>
+		           <text x=80 y=90 style="font-size: 55%;"> 4</text>
+		           <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		           <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		           <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		           <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		           <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+               </svg>
+               
+
+               <!--Water bottle-->
+
+               <svg style="position:absolute; left:545px; top:230px; width:100px;"  title="Water" >
+		         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+		         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+		         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+	             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+	             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+	             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+                 <text x=36 y=87 style="font-size: 53%;"> Water(200ml)</text>   
+		         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+               </svg>
+
+
+              <!--NH4NO3 bottle-->
+
+              <svg style="position:absolute; left:610px; top:230.5px; width:100px;" >
+		         <path d="M 48 10 q 17 -6  32.5 0   " title="NH4NO3 "style="fill:none;stroke:black;stroke-width:1.4"/>
+		         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+		         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+		         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+	             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+	             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+	             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+	             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+                 <text x=36 y=87 style="font-size: 55%;">NH </text>
+                 <text x=50 y=91 style="font-size: 40%;"> 4 </text>
+                 <text x=53.5 y=87 style="font-size: 55%;">NO </text>
+	             <text x=67 y=90 style="font-size: 40%;"> 3</text>  
+	             <text x=70.6 y=87 style="font-size: 48%;"> (10%)</text>       
+	             <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	             <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	             <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	             <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+               </svg>
+           </div>
+           <div id="frame1" style="display:none;">
+              <h1 id="Name" style="position:absolute; left:60px; top:250px; color:blue; display:none; font-size: 22px; text-transform: uppercase; "> ESTIMATION of copper(ii) by spectrocolorimetry</h1>
+           </div>
+           
+           <div id="frame2" style="display:none;">
+	              <svg style="position:absolute; left:120px; top:335px; width: 562px" title="Table" >
+			          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+			          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+			          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+	              </svg>
+
+	              <!--flask 100ml-->
+
+	              <svg height="213px" width="177px" id="flask100ml" style="position:absolute; left:125px; top:167px; width: 562px" tittle="flask100ml" >
+	              <ellipse cx="105" cy="18" rx="23" ry="7.5" style="fill:none;stroke:black;stroke-width:1"/>
+	              <path d="M 82 20 q 6 45  -2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <path d="M 128 20 q -6 45  2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <line x1= 80 y1=80 x2=36 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <line x1= 130 y1=80 x2=175 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <ellipse cx="105" cy="193" rx="70" ry="20" style="fill:none;stroke:black;stroke-width:1"/>
+	              <ellipse cx="105" cy="193" rx="17.5" ry="5" id="22+3drop1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="35" ry="10" id="22+3drop2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="52.5" ry="15" id="22+3drop3" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="68" ry="18" id="22+3drop4" style="fill:dodgerblue;stroke:black;stroke-width:1;display:none;"/>
+	              <polyline id="22+3dropW1" points="44,172 166,172 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="22+3dropW2" points="49,158 160,158 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="22+3dropW3" points="59,133 150,133 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="22+3dropW4" points="68.5,110 141,110 173.5,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <path d="M 102 100 q 15 -3  25 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	              <path d="M 103 110 q 15 -3  26 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	              <path d="M 106 130 q 15 -3  27 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	               <line x1= 102 y1=100 x2=105 y2=130 style="fill:none;stroke:black;stroke-width:0.4"/>
+	               <text x=105 y=105 style="font-size: 50%;"> 200 ml</text>
+	               <text x=107 y=117 style="font-size: 50%;"> 100 ml</text>
+	               <text x=112 y=138 style="font-size: 50%;"> 50 ml</text>
+	            </svg>
+	            <svg style="position:absolute; left:450px; top:230px;height: 135.5px; width: 100px; cursor: pointer;  "  title="Solid 0.2g" id="22+2" >
+			         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+			         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+			         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                 <text x=39 y=87 style="font-size: 55%;">Solid CuSO</text>
+	                 <text x=89 y=89 style="font-size: 52%;">4</text>    
+			         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+
+	               <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="22+3" title="Waterdrop">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				     <!--Water bottle-->
+
+	               <svg id="22+3W" style="position:absolute; left:450px; top:230px; height: 135.5px; width: 100px; cursor: pointer;display:none;"  title="Water" >
+			         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+			         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+			         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                 <text x=36 y=87 style="font-size: 53%;"> Water(200ml)</text>   
+			         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+                    
+	                 <svg id="22+4H" style="position:absolute; left:450px; top:230px; height: 135.5px; width: 100px; cursor: pointer;display:none;"  title="H2SO4bottle" >
+		                 <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+		                 <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+		                 <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		                 <text x=36 y=87 style="font-size: 64%;">Cons.H SO</text> 
+		                 <text x=71.5 y=90 style="font-size: 52%;">2</text>
+		                 <text x=89.5 y=91 style="font-size: 52%;">4</text>  
+		                 <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                  </svg>
+	                  <div id="dialog1" title="Question 1:-" style="display: none;">
+			            <p>Why concentrated H<sub>2</sub>S0<sub>4</sub> added?</p>
+			            <form>
+			            <input type="radio" name="r" onclick="myfunction()">it behave as much better conductor</input><br>
+			            <input type="radio" name="r" onclick="mfunction()">to prevent precipitation of Cu(OH)<sub>2</sub></input><br>
+			            <input type="radio" name="r" onclick="myfunction()">to get the right experimental value </input><br>
+			            <input type="radio" name="r" onclick="myfunction()">None of these </input>
+			            <br><br>
+			            <p id="m"></p>
+			          </form>
+			         </div>
+
+          		 </div>
+
+          		 
+          		 <div id="frame3" style="display:none;">
+	          		 	<svg style="position:absolute; left:120px; top:440px; width: 562px" title="Table" >
+				          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+				          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+				          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+		               </svg>
+
+	              		<svg height="213px" width="177px" id="32+flask100ml2" style="position:absolute; left:430px; top:267px; width: 177px" tittle="flask100ml" >
+	              		<ellipse cx="105" cy="18" rx="23" ry="7.5" style="fill:none;stroke:black;stroke-width:1"/>
+	              		<path d="M 82 20 q 6 45  -2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <path d="M 128 20 q -6 45  2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <line x1= 80 y1=80 x2=36 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <line x1= 130 y1=80 x2=175 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <ellipse cx="105" cy="193" rx="70" ry="20" style="fill:none;stroke:black;stroke-width:1"/>
+		              <ellipse cx="105" cy="193" rx="17.5" ry="5" id="22+3drop1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="35" ry="10" id="22+3drop2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="52.5" ry="15" id="22+3drop3" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="69" ry="18" id="22+3drop4" style="fill:dodgerblue;stroke:black;stroke-width:1;display:block;"/>
+		              <polyline id="32+3dropW1" points="44,172 166,172 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="32+3dropW2" points="49,158 160,158 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="32+3dropW3" points="59,133 150,133 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="32+3dropW4" points="68.5,110 141,110 173.5,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: block;"/>
+		              <path d="M 102 100 q 15 -3  25 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		              <path d="M 103 110 q 15 -3  26 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		              <path d="M 106 130 q 15 -3  27 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		               <line x1= 102 y1=100 x2=105 y2=130 style="fill:none;stroke:black;stroke-width:0.4"/>
+		               <text x=105 y=105 style="font-size: 50%;"> 200 ml</text>
+		               <text x=107 y=117 style="font-size: 50%;"> 100 ml</text>
+		               <text x=112 y=138 style="font-size: 50%;"> 50 ml</text>
+	           	  </svg>
+
+	           	  <svg height="202px" width="50px" id="32+testtube"  style="position:absolute; left:175px; top:267px; width: 50px">
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <line x1= 10.55 y1=50 x2=10.5 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <line x1= 49.35 y1=50 x2=49.35 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <path d="M 10.55 188 q 0 6  8 10   " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 49.55 188 q 0 6  -7.6 10  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 18.55 198 q 15 6  27 -2  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <rect x="12" y="189" width="35" height="3.8" id="32+fill1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:;display: none;"></rect>
+                            <path d="M 12 192 q 16.5 13 36 0" id="32+fill2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1; display: none;"/>
+                            <rect x="11.5" y="175" width="36.6" height="16.9" id="32+fill3" style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3"></rect>
+                            <rect x="11.5" y="140" width="36.6" height="51.9" id="32+fill4" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>
+                             <rect x="11.5" y="110" width="36.6" height="81.9" id="32+fill5" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>
+                             <rect x="11.5" y="100" width="36.6" height="91.9" id="32+fill6" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>                 
+                     </svg>
+
+                     <svg height="260px" width="200px" id="32+dropper" style="position:absolute; left:670px; top:10px; width: 102px; display: none;">
+	                    <ellipse cx="75" cy="90" rx="24" ry="5" style="fill:black;stroke:black;stroke-width:2"/>
+	                    <ellipse cx="75" cy="117" rx="25" ry="10" style="fill:black;stroke:black;stroke-width:2"/>
+	                    <path d="M 65 43 q 10 -20  20 0   " style="fill:black;stroke:black;stroke-width:1.4"/>
+	                    <rect x=65 y=43 width=20 height=40 style="fill:grey;stroke:black;stroke-width:0.5"/>
+	                    <path d="M 68 55 q 7.5 -10  14 0   " style="fill:black;stroke:black;stroke-width:1.4"/>
+	                    <rect x=69 y=55 width=12 height=30 style="fill:black;stroke:black;stroke-width:0.5"/>
+	                    <rect x=49 y=90 width=52 height=29 style="fill:black;stroke:black;stroke-width:0.5"/>
+	                    <rect x=50 y=92 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=62 y=93 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=74 y=94 width=2.5 height=23 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=86 y=93 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=98 y=91 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <line x1= 69 y1=106 x2=69 y2=225 style="fill:none;stroke:black;stroke-width:1.4"/>
+	                    <line x1= 80 y1=106 x2=80 y2=225 style="fill:none;stroke:black;stroke-width:1.4"/>
+	                    <path d="M 68 225 q 0 6  7 10   " style="fill:dodgerblue;stroke:black;stroke-width:1.4"/>
+	                    <path d="M 81 225 q 0 6  -7 10  " style="fill:dodgerblue;stroke:black;stroke-width:1.4"/>
+	                    <polyline id="32+dropperfill1" points="70,205 78.5,205 78.5,225.5 80,226 75.5,232.5 68.5,226 70,226 70.5,225 70,205  " style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:1"/>
+                         <polyline id="32+dropperfill2"  points="70,225 78.5,225 78.5,225.5 80,226 75.5,232.5 68.5,226 70,223 70.5,225 70,225  " style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:1"/>
+
+                    </svg>
+                     <span id="32+range" style="display: none;">0.0&nbsp&nbsp2.5&nbsp&nbsp5.0&nbsp&nbsp7.5&nbsp&nbsp10<br><input type="range" min="0" max="10" value="0" step="2.5" id="32+dropperMLrange"><button id="32+dropperMLsetup">Take</button></span>
+                     <span id="32+notice" style="display: none;"></span>
+                     <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="32+3drop" title="Waterdrop">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				   <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="32+4drop" title="Waterdrop2">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				   <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="32+5drop" title="Waterdrop2">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+
+				   <svg height="135.5px" width="177px" id="32+bottleNH4" style="position:absolute; display: none; left:430px; top:267px; width: 100px" title="NH4NO3 " >
+				         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+				         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+				         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		                 <text x=36 y=87 style="font-size: 55%;">NH </text>
+		                 <text x=50 y=91 style="font-size: 40%;"> 4 </text>
+		                 <text x=53.5 y=87 style="font-size: 55%;">NO </text>
+			             <text x=67 y=90 style="font-size: 40%;"> 3</text>  
+			             <text x=70.6 y=87 style="font-size: 48%;"> (10%)</text>       
+			             <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+
+	               <svg height="135.5px" width="177px" id="32+bottleFeCN" style="position:absolute; display: none; left:430px; top:267px; width: 100px" title="NH4NO3 " >
+                         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+                         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+                         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+                         <text x=40 y=87 style="font-size: 55%;">K </text>
+                         <text x=47 y=91 style="font-size: 54%;"> 4 </text>
+                         <text x=53 y=87 style="font-size: 55%;">Fe </text>
+                         <text x=63 y=87 style="font-size: 55%;"> (CN)</text>
+                         <text x=81 y=91 style="font-size: 54%;"> 6 </text>     
+                         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                   </svg>
+          		 </div>
+          		  <div id="frame4" style="display:none;">
+	          		  	<svg style="position:absolute; left:120px; top:440px; width: 562px" title="Table" >
+					          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+					          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+					          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+					          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+					          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+					          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+			               </svg>
+				            <svg height="210px" width="312px" id="42+calmeter" title="Calorimeter" style="position:absolute;left: 130px; top:280px;">
+	                         <polyline points="60,9 270,9 290,80 40,80 60,9 " style="fill:#ffffba;stroke:black;stroke-width:1"></polyline>
+	                         <polyline points="40,80 19,200 311,200 290,80" style="fill:yellow;stroke:black;stroke-width:1.5"></polyline>
+	                         <polyline points="47,90 29,191 301.5,191 284,90 47,90" style="fill:white;stroke:black;stroke-width:1.5"></polyline>
+	                         <path d="M 70 109.5 q -12 0  -10 15   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+	                         <line x1="65" y1="110.3" x2="210" y2="110.3" style="fill:none;stroke:black;stroke-width:2"></line>
+	                         <path d="M 208 109.5 q 12 0  10 15   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+	                         <line x1="60" y1="122" x2="60" y2="155" style="fill:none;stroke:black;stroke-width:1.4"></line>
+	                         <line x1="218" y1="122" x2="218" y2="155" style="fill:none;stroke:black;stroke-width:1.4"></line>
+	                         <path d="M 60 155 q 0 12  10 10   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+	                         <path d="M 218 155 q 0 12  -10 10   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+	                         <line x1="70" y1="165" x2="208" y2="165" style="fill:none;stroke:black;stroke-width:1.4"></line>
+	                         <polyline points="70,109 60,122 60,155 70,165 208,165 218,155 218,122 208,109" style="fill:black;stroke:black;stroke-width:1.4"></polyline>
+	                          <ellipse cx="220" cy="40" rx="25" ry=19 style="fill:black;stroke:black;stroke-width:5"/>
+	                         <ellipse cx="220" cy="40" rx="19" ry=15 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                         <rect x="75" y="120" width="45" height="20" style="fill:white;stroke:black;stroke-width:1"></rect>
+	                         <rect x="160" y="120" width="45" height="20" style="fill:white;stroke:black;stroke-width:1"></rect>
+	                         <text x="65" y="104" style="font-size: 75%; stroke:black; stroke-width:0.6">Spectrocalorimeter</text>
+	                         <text x="65" y="155" style="font-size: 50%; stroke:white; stroke-width:0.5">Optical Density</text>
+	                         <text x="160" y="155" style="font-size: 50%; stroke:white; stroke-width:0.5">Wavelenth</text>
+
+	                  			 </svg>
+
+			                   <div id="dialog2" title="Question 2:-" style="display: none;">
+					            <p>What is value of maximum wavelength?</p>
+					            <form>
+					            <input type="radio" name="r" onclick="myfunction2()">48 nm</input><br>
+					            <input type="radio" name="r" onclick="myfunction2()">480 mm</input><br>
+					            <input type="radio" name="r" onclick="mfunction2()">480nm</input><br>
+					            <input type="radio" name="r" onclick="myfunction2()">None of these </input>
+					            <br><br>
+					            <p id="m2"></p>
+					          </form>
+			         		 </div>
+                    		<button id="42+powerbutton" class="btn btn1" style="position: absolute; display:none; left:350px; top:450px; ">POWER ON</button>
+                    	<div id="42+power" class="poweron" style="position:absolute; display: none;  left:380px; top:425px;">                    </div>
+                    	<button id="42+wavebutton" class="btnn btn1" style="position: absolute; display:none; left:220px; top:450px; ">SET WAVELENTH</button>
+                    	<div id="42+wavelenth" style="position: absolute; display:none; left:300px; top:400px; font-size: 13px;">
+                   	 	480
+                   		 </div>	
+                   		 <div id="42+opacity" style="position: absolute; display:none; left:215px; top:400px; font-size: 13px;">
+                    	0.11</div>
+                    	
+
+                   <svg height="202px" width="50px" id="42+testtube"  style="position:absolute;cursor: pointer; left:590px; top:267px; width: 50px;">
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <line x1= 10.55 y1=50 x2=10.5 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <line x1= 49.35 y1=50 x2=49.35 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <path d="M 10.55 188 q 0 6  8 10   " style=" fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 49.55 188 q 0 6  -7.6 10  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 18.55 198 q 15 6  27 -2  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 12 192 q 16.5 13 36 0" id="42+fill2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1; display: block;"/>
+                             <rect x="11.5" y="100" width="36.6" height="91.9" id="42+fill6" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;"></rect>                 
+                     </svg>
+          		  </div>	
+          		  <div id="frame5" style="display:none;">
+		              <h1 id="Namee" style="position:absolute; left:60px; top:250px; color:blue; display:none; font-size: 16px; text-transform: uppercase; "> perform experment again for different amount of solution</h1>
+		           </div>
+
+		           <div id="frame6" style="display:none;">
+	              <svg style="position:absolute; left:120px; top:335px; width: 562px" title="Table" >
+			          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+			          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+			          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+	              </svg>
+
+	              <!--flask 100ml-->
+
+	              <svg height="213px" width="177px" id="flask100ml23" style="position:absolute; left:125px; top:167px; width: 562px" tittle="flask100ml" >
+	              <ellipse cx="105" cy="18" rx="23" ry="7.5" style="fill:none;stroke:black;stroke-width:1"/>
+	              <path d="M 82 20 q 6 45  -2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <path d="M 128 20 q -6 45  2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <line x1= 80 y1=80 x2=36 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <line x1= 130 y1=80 x2=175 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <ellipse cx="105" cy="193" rx="70" ry="20" style="fill:none;stroke:black;stroke-width:1"/>
+	              <ellipse cx="105" cy="193" rx="17.5" ry="5" id="23+3drop1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="35" ry="10" id="23+3drop2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="52.5" ry="15" id="23+3drop3" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="68" ry="18" id="23+3drop4" style="fill:dodgerblue;stroke:black;stroke-width:1;display:none;"/>
+	              <polyline id="23+3dropW1" points="44,172 166,172 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="23+3dropW2" points="49,158 160,158 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="23+3dropW3" points="59,133 150,133 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="23+3dropW4" points="68.5,110 141,110 173.5,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <path d="M 102 100 q 15 -3  25 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	              <path d="M 103 110 q 15 -3  26 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	              <path d="M 106 130 q 15 -3  27 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	               <line x1= 102 y1=100 x2=105 y2=130 style="fill:none;stroke:black;stroke-width:0.4"/>
+	               <text x=105 y=105 style="font-size: 50%;"> 200 ml</text>
+	               <text x=107 y=117 style="font-size: 50%;"> 100 ml</text>
+	               <text x=112 y=138 style="font-size: 50%;"> 50 ml</text>
+	            </svg>
+	            <svg style="position:absolute; left:450px; top:230px;height: 135.5px; width: 100px; cursor: pointer;  "  title="Solid 0.2g" id="23+2" >
+			         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+			         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+			         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                 <text x=39 y=87 style="font-size: 55%;">Solid CuSO</text>
+	                 <text x=89 y=89 style="font-size: 52%;">4</text>    
+			         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+
+	               <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="23+3" title="Waterdrop">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				     <!--Water bottle-->
+
+	               <svg id="23+3W" style="position:absolute; left:450px; top:230px; height: 135.5px; width: 100px; cursor: pointer;display:none;"  title="Water" >
+			         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+			         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+			         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                 <text x=36 y=87 style="font-size: 53%;"> Water(200ml)</text>   
+			         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+                    
+	                 <svg id="23+4H" style="position:absolute; left:450px; top:230px; height: 135.5px; width: 100px; cursor: pointer;display:none;"  title="H2SO4bottle" >
+		                 <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+		                 <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+		                 <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		                 <text x=36 y=87 style="font-size: 64%;">Cons.H SO</text> 
+		                 <text x=71.5 y=90 style="font-size: 52%;">2</text>
+		                 <text x=89.5 y=91 style="font-size: 52%;">4</text>  
+		                 <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                  </svg>
+          		 </div>
+
+          		 <div id="frame7" style="display:none;">
+	          		 	<svg style="position:absolute; left:120px; top:440px; width: 562px" title="Table" >
+				          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+				          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+				          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+		               </svg>
+
+	              		<svg height="213px" width="177px" id="33+flask100ml2" style="position:absolute; left:430px; top:267px; width: 177px" tittle="flask100ml" >
+	              		<ellipse cx="105" cy="18" rx="23" ry="7.5" style="fill:none;stroke:black;stroke-width:1"/>
+	              		<path d="M 82 20 q 6 45  -2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <path d="M 128 20 q -6 45  2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <line x1= 80 y1=80 x2=36 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <line x1= 130 y1=80 x2=175 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <ellipse cx="105" cy="193" rx="70" ry="20" style="fill:none;stroke:black;stroke-width:1"/>
+		              <ellipse cx="105" cy="193" rx="17.5" ry="5" id="33+3drop1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="35" ry="10" id="33+3drop2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="52.5" ry="15" id="33+3drop3" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="69" ry="18" id="33+3drop4" style="fill:dodgerblue;stroke:black;stroke-width:1;display:block;"/>
+		              <polyline id="33+3dropW1" points="44,172 166,172 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="33+3dropW2" points="49,158 160,158 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="33+3dropW3" points="59,133 150,133 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="33+3dropW4" points="68.5,110 141,110 173.5,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: block;"/>
+		              <path d="M 102 100 q 15 -3  25 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		              <path d="M 103 110 q 15 -3  26 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		              <path d="M 106 130 q 15 -3  27 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		               <line x1= 102 y1=100 x2=105 y2=130 style="fill:none;stroke:black;stroke-width:0.4"/>
+		               <text x=105 y=105 style="font-size: 50%;"> 200 ml</text>
+		               <text x=107 y=117 style="font-size: 50%;"> 100 ml</text>
+		               <text x=112 y=138 style="font-size: 50%;"> 50 ml</text>
+	           	  </svg>
+
+	           	  <svg height="202px" width="50px" id="33+testtube"  style="position:absolute; left:175px; top:267px; width: 50px">
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <line x1= 10.55 y1=50 x2=10.5 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <line x1= 49.35 y1=50 x2=49.35 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <path d="M 10.55 188 q 0 6  8 10   " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 49.55 188 q 0 6  -7.6 10  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 18.55 198 q 15 6  27 -2  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <rect x="12" y="186" width="35" height="6.8" id="33+fill1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:;display: none;"></rect>
+                            <path d="M 12 192 q 16.5 13 36 0" id="33+fill2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1; display: none;"/>
+                            <rect x="11.5" y="175" width="36.6" height="16.9" id="33+fill3" style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3"></rect>
+                            <rect x="11.5" y="140" width="36.6" height="51.9" id="33+fill4" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>
+                             <rect x="11.5" y="110" width="36.6" height="81.9" id="33+fill5" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>
+                             <rect x="11.5" y="98" width="36.6" height="93.9" id="33+fill6" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>                 
+                     </svg>
+
+                     <svg height="260px" width="200px" id="33+dropper" style="position:absolute; left:670px; top:10px; width: 102px; display: none;">
+	                    <ellipse cx="75" cy="90" rx="24" ry="5" style="fill:black;stroke:black;stroke-width:2"/>
+	                    <ellipse cx="75" cy="117" rx="25" ry="10" style="fill:black;stroke:black;stroke-width:2"/>
+	                    <path d="M 65 43 q 10 -20  20 0   " style="fill:black;stroke:black;stroke-width:1.4"/>
+	                    <rect x=65 y=43 width=20 height=40 style="fill:grey;stroke:black;stroke-width:0.5"/>
+	                    <path d="M 68 55 q 7.5 -10  14 0   " style="fill:black;stroke:black;stroke-width:1.4"/>
+	                    <rect x=69 y=55 width=12 height=30 style="fill:black;stroke:black;stroke-width:0.5"/>
+	                    <rect x=49 y=90 width=52 height=29 style="fill:black;stroke:black;stroke-width:0.5"/>
+	                    <rect x=50 y=92 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=62 y=93 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=74 y=94 width=2.5 height=23 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=86 y=93 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=98 y=91 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <line x1= 69 y1=106 x2=69 y2=225 style="fill:none;stroke:black;stroke-width:1.4"/>
+	                    <line x1= 80 y1=106 x2=80 y2=225 style="fill:none;stroke:black;stroke-width:1.4"/>
+	                    <path d="M 68 225 q 0 6  7 10   " style="fill:dodgerblue;stroke:black;stroke-width:1.4"/>
+	                    <path d="M 81 225 q 0 6  -7 10  " style="fill:dodgerblue;stroke:black;stroke-width:1.4"/>
+	                    <polyline id="33+dropperfill1" points="70,200 78.5,200 78.5,225.5 80,226 75.5,232.5 68.5,226 70,226 70.5,225 70,200  " style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:1"/>
+                         <polyline id="33+dropperfill2"  points="70,225 78.5,225 78.5,225.5 80,226 75.5,232.5 68.5,226 70,223 70.5,225 70,225  " style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:1"/>
+
+                    </svg>
+                     <span id="33+range" style="display: none;">0.0&nbsp&nbsp2.5&nbsp&nbsp5.0&nbsp&nbsp7.5&nbsp&nbsp10<br><input type="range" min="0" max="10" value="0" step="2.5" id="33+dropperMLrange"><button id="33+dropperMLsetup">Take</button></span>
+                     <span id="33+notice" style="display: none;"></span>
+                     <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="33+3drop" title="Waterdrop">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				   <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="33+4drop" title="Waterdrop2">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				   <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="33+5drop" title="Waterdrop2">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+
+				   <svg height="135.5px" width="177px" id="33+bottleNH4" style="position:absolute; display: none; left:430px; top:267px; width: 100px" title="NH4NO3 " >
+				         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+				         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+				         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		                 <text x=36 y=87 style="font-size: 55%;">NH </text>
+		                 <text x=50 y=91 style="font-size: 40%;"> 4 </text>
+		                 <text x=53.5 y=87 style="font-size: 55%;">NO </text>
+			             <text x=67 y=90 style="font-size: 40%;"> 3</text>  
+			             <text x=70.6 y=87 style="font-size: 48%;"> (10%)</text>       
+			             <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+
+	               <svg height="135.5px" width="177px" id="33+bottleFeCN" style="position:absolute; display: none; left:430px; top:267px; width: 100px" title="NH4NO3 " >
+                         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+                         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+                         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+                         <text x=40 y=87 style="font-size: 55%;">K </text>
+                         <text x=47 y=91 style="font-size: 54%;"> 4 </text>
+                         <text x=53 y=87 style="font-size: 55%;">Fe </text>
+                         <text x=63 y=87 style="font-size: 55%;"> (CN)</text>
+                         <text x=81 y=91 style="font-size: 54%;"> 6 </text>     
+                         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                   </svg>
+          		 </div>
+
+
+
+          		 <div id="frame8" style="display:none;">
+          		  	<svg style="position:absolute; left:120px; top:440px; width: 562px" title="Table" >
+				          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+				          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+				          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+		               </svg>
+			            <svg height="210px" width="312px" id="43+calmeter" title="Calorimeter" style="position:absolute;left: 130px; top:280px;">
+                         <polyline points="60,9 270,9 290,80 40,80 60,9 " style="fill:#ffffba;stroke:black;stroke-width:1"></polyline>
+                         <polyline points="40,80 19,200 311,200 290,80" style="fill:yellow;stroke:black;stroke-width:1.5"></polyline>
+                         <polyline points="47,90 29,191 301.5,191 284,90 47,90" style="fill:white;stroke:black;stroke-width:1.5"></polyline>
+                         <path d="M 70 109.5 q -12 0  -10 15   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="65" y1="110.3" x2="210" y2="110.3" style="fill:none;stroke:black;stroke-width:2"></line>
+                         <path d="M 208 109.5 q 12 0  10 15   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="60" y1="122" x2="60" y2="155" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <line x1="218" y1="122" x2="218" y2="155" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <path d="M 60 155 q 0 12  10 10   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <path d="M 218 155 q 0 12  -10 10   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="70" y1="165" x2="208" y2="165" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <polyline points="70,109 60,122 60,155 70,165 208,165 218,155 218,122 208,109" style="fill:black;stroke:black;stroke-width:1.4"></polyline>
+                          <ellipse cx="220" cy="40" rx="25" ry=19 style="fill:black;stroke:black;stroke-width:5"/>
+                         <ellipse cx="220" cy="40" rx="19" ry=15 style="fill:white;stroke:black;stroke-width:0.8"/>
+                         <rect x="75" y="120" width="45" height="20" style="fill:white;stroke:black;stroke-width:1"></rect>
+                         <rect x="160" y="120" width="45" height="20" style="fill:white;stroke:black;stroke-width:1"></rect>
+                         <text x="65" y="104" style="font-size: 75%; stroke:black; stroke-width:0.6">Spectrocalorimeter</text>
+                         <text x="65" y="155" style="font-size: 50%; stroke:white; stroke-width:0.5">Optical Density</text>
+                         <text x="160" y="155" style="font-size: 50%; stroke:white; stroke-width:0.5">Wavelenth</text>
+
+                   </svg>
+				           
+                    <button id="43+powerbutton" class="btn btn1" style="position: absolute; display:none; left:350px; top:450px; ">POWER ON</button>
+                    <div id="43+power" class="poweron" style="position:absolute; display: none;  left:380px; top:425px;">                    </div>
+                    <button id="43+wavebutton" class="btnn btn1" style="position: absolute; display:none; left:220px; top:450px; ">SET WAVELENTH</button>
+                    <div id="43+wavelenth" style="position: absolute; display:none; left:300px; top:400px; font-size: 13px;">
+                    	480
+                    </div>	
+                    <div id="43+opacity" style="position: absolute; display:none; left:215px; top:400px; font-size: 13px;">
+                    	0.22
+                    </div>
+                    <svg height="202px" width="50px" id="43+testtube"  style="position:absolute;cursor: pointer; left:590px; top:267px; width: 50px;">
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <line x1= 10.55 y1=50 x2=10.5 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <line x1= 49.35 y1=50 x2=49.35 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <path d="M 10.55 188 q 0 6  8 10   " style=" fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 49.55 188 q 0 6  -7.6 10  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 18.55 198 q 15 6  27 -2  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 12 192 q 16.5 13 36 0" id="43+fill2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1; display: block;"/>
+                             <rect x="11.5" y="100" width="36.6" height="91.9" id="43+fill6" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;"></rect>                 
+                     </svg>
+          		  </div>
+          		  <div id="frame9" style="display:none;">
+		              <h1 id="Namee2" style="position:absolute; left:60px; top:250px; color:blue; display:none; font-size: 16px; text-transform: uppercase; "> perform experment for further different amount of solution</h1>
+		           </div>
+
+		           <div id="frame10" style="display:none;">
+	              <svg style="position:absolute; left:120px; top:335px; width: 562px" title="Table" >
+			          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+			          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+			          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+	              </svg>
+
+	              <!--flask 100ml-->
+
+	              <svg height="213px" width="177px" id="flask100ml24" style="position:absolute; left:125px; top:167px; width: 562px" tittle="flask100ml" >
+	              <ellipse cx="105" cy="18" rx="23" ry="7.5" style="fill:none;stroke:black;stroke-width:1"/>
+	              <path d="M 82 20 q 6 45  -2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <path d="M 128 20 q -6 45  2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <line x1= 80 y1=80 x2=36 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <line x1= 130 y1=80 x2=175 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <ellipse cx="105" cy="193" rx="70" ry="20" style="fill:none;stroke:black;stroke-width:1"/>
+	              <ellipse cx="105" cy="193" rx="17.5" ry="5" id="24+3drop1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="35" ry="10" id="24+3drop2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="52.5" ry="15" id="24+3drop3" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="68" ry="18" id="24+3drop4" style="fill:dodgerblue;stroke:black;stroke-width:1;display:none;"/>
+	              <polyline id="24+3dropW1" points="44,172 166,172 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="24+3dropW2" points="49,158 160,158 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="24+3dropW3" points="59,133 150,133 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="24+3dropW4" points="68.5,110 141,110 173.5,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <path d="M 102 100 q 15 -3  25 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	              <path d="M 103 110 q 15 -3  26 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	              <path d="M 106 130 q 15 -3  27 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	               <line x1= 102 y1=100 x2=105 y2=130 style="fill:none;stroke:black;stroke-width:0.4"/>
+	               <text x=105 y=105 style="font-size: 50%;"> 200 ml</text>
+	               <text x=107 y=117 style="font-size: 50%;"> 100 ml</text>
+	               <text x=112 y=138 style="font-size: 50%;"> 50 ml</text>
+	            </svg>
+	            <svg style="position:absolute; left:450px; top:230px;height: 135.5px; width: 100px; cursor: pointer;  "  title="Solid 0.2g" id="24+2" >
+			         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+			         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+			         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                 <text x=39 y=87 style="font-size: 55%;">Solid CuSO</text>
+	                 <text x=89 y=89 style="font-size: 52%;">4</text>    
+			         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+
+	               <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="24+3" title="Waterdrop">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				     <!--Water bottle-->
+
+	               <svg id="24+3W" style="position:absolute; left:450px; top:230px; height: 135.5px; width: 100px; cursor: pointer;display:none;"  title="Water" >
+			         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+			         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+			         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                 <text x=36 y=87 style="font-size: 53%;"> Water(200ml)</text>   
+			         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+                    
+	                 <svg id="24+4H" style="position:absolute; left:450px; top:230px; height: 135.5px; width: 100px; cursor: pointer;display:none;"  title="H2SO4bottle" >
+		                 <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+		                 <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+		                 <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		                 <text x=36 y=87 style="font-size: 64%;">Cons.H SO</text> 
+		                 <text x=71.5 y=90 style="font-size: 52%;">2</text>
+		                 <text x=89.5 y=91 style="font-size: 52%;">4</text>  
+		                 <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                  </svg>
+          		 </div>
+
+
+          		 <div id="frame11" style="display:none;">
+	          		 	<svg style="position:absolute; left:120px; top:440px; width: 562px" title="Table" >
+				          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+				          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+				          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+		               </svg>
+
+	              		<svg height="213px" width="177px" id="34+flask100ml2" style="position:absolute; left:430px; top:267px; width: 177px" tittle="flask100ml" >
+	              		<ellipse cx="105" cy="18" rx="23" ry="7.5" style="fill:none;stroke:black;stroke-width:1"/>
+	              		<path d="M 82 20 q 6 45  -2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <path d="M 128 20 q -6 45  2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <line x1= 80 y1=80 x2=36 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <line x1= 130 y1=80 x2=175 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <ellipse cx="105" cy="193" rx="70" ry="20" style="fill:none;stroke:black;stroke-width:1"/>
+		              <ellipse cx="105" cy="193" rx="17.5" ry="5" id="34+3drop1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="35" ry="10" id="34+3drop2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="52.5" ry="15" id="34+3drop3" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="69" ry="18" id="34+3drop4" style="fill:dodgerblue;stroke:black;stroke-width:1;display:block;"/>
+		              <polyline id="34+3dropW1" points="44,172 166,172 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="34+3dropW2" points="49,158 160,158 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="34+3dropW3" points="59,133 150,133 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="34+3dropW4" points="68.5,110 141,110 173.5,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: block;"/>
+		              <path d="M 102 100 q 15 -3  25 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		              <path d="M 103 110 q 15 -3  26 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		              <path d="M 106 130 q 15 -3  27 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		               <line x1= 102 y1=100 x2=105 y2=130 style="fill:none;stroke:black;stroke-width:0.4"/>
+		               <text x=105 y=105 style="font-size: 50%;"> 200 ml</text>
+		               <text x=107 y=117 style="font-size: 50%;"> 100 ml</text>
+		               <text x=112 y=138 style="font-size: 50%;"> 50 ml</text>
+	           	  </svg>
+
+	           	  <svg height="202px" width="50px" id="34+testtube"  style="position:absolute; left:175px; top:267px; width: 50px">
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <line x1= 10.55 y1=50 x2=10.5 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <line x1= 49.35 y1=50 x2=49.35 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <path d="M 10.55 188 q 0 6  8 10   " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 49.55 188 q 0 6  -7.6 10  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 18.55 198 q 15 6  27 -2  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <rect x="12" y="186" width="35" height="6.8" id="34+fill1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:;display: none;"></rect>
+                            <path d="M 12 192 q 16.5 13 36 0" id="34+fill2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1; display: none;"/>
+                            <rect x="11.5" y="175" width="36.6" height="16.9" id="34+fill3" style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3"></rect>
+                            <rect x="11.5" y="140" width="36.6" height="51.9" id="34+fill4" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>
+                             <rect x="11.5" y="110" width="36.6" height="81.9" id="34+fill5" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>
+                             <rect x="11.5" y="94" width="36.6" height="95.9" id="34+fill6" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>                 
+                     </svg>
+
+                     <svg height="260px" width="200px" id="34+dropper" style="position:absolute; left:670px; top:10px; width: 102px; display: none;">
+	                    <ellipse cx="75" cy="90" rx="24" ry="5" style="fill:black;stroke:black;stroke-width:2"/>
+	                    <ellipse cx="75" cy="117" rx="25" ry="10" style="fill:black;stroke:black;stroke-width:2"/>
+	                    <path d="M 65 43 q 10 -20  20 0   " style="fill:black;stroke:black;stroke-width:1.4"/>
+	                    <rect x=65 y=43 width=20 height=40 style="fill:grey;stroke:black;stroke-width:0.5"/>
+	                    <path d="M 68 55 q 7.5 -10  14 0   " style="fill:black;stroke:black;stroke-width:1.4"/>
+	                    <rect x=69 y=55 width=12 height=30 style="fill:black;stroke:black;stroke-width:0.5"/>
+	                    <rect x=49 y=90 width=52 height=29 style="fill:black;stroke:black;stroke-width:0.5"/>
+	                    <rect x=50 y=92 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=62 y=93 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=74 y=94 width=2.5 height=23 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=86 y=93 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=98 y=91 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <line x1= 69 y1=106 x2=69 y2=225 style="fill:none;stroke:black;stroke-width:1.4"/>
+	                    <line x1= 80 y1=106 x2=80 y2=225 style="fill:none;stroke:black;stroke-width:1.4"/>
+	                    <path d="M 68 225 q 0 6  7 10   " style="fill:dodgerblue;stroke:black;stroke-width:1.4"/>
+	                    <path d="M 81 225 q 0 6  -7 10  " style="fill:dodgerblue;stroke:black;stroke-width:1.4"/>
+	                    <polyline id="34+dropperfill1" points="70,195 78.5,195 78.5,225.5 80,226 75.5,232.5 68.5,226 70,226 70.5,225 70,195  " style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:1"/>
+                         <polyline id="34+dropperfill2"  points="70,225 78.5,225 78.5,225.5 80,226 75.5,232.5 68.5,226 70,223 70.5,225 70,225  " style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:1"/>
+
+                    </svg>
+                     <span id="34+range" style="display: none;">0.0&nbsp&nbsp2.5&nbsp&nbsp5.0&nbsp&nbsp7.5&nbsp&nbsp10<br><input type="range" min="0" max="10" value="0" step="2.5" id="34+dropperMLrange"><button id="34+dropperMLsetup">Take</button></span>
+                     <span id="34+notice" style="display: none;"></span>
+                     <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="34+3drop" title="Waterdrop">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				   <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="34+4drop" title="Waterdrop2">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				   <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="34+5drop" title="Waterdrop2">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+
+				   <svg height="135.5px" width="177px" id="34+bottleNH4" style="position:absolute; display: none; left:430px; top:267px; width: 100px" title="NH4NO3 " >
+				         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+				         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+				         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		                 <text x=36 y=87 style="font-size: 55%;">NH </text>
+		                 <text x=50 y=91 style="font-size: 40%;"> 4 </text>
+		                 <text x=53.5 y=87 style="font-size: 55%;">NO </text>
+			             <text x=67 y=90 style="font-size: 40%;"> 3</text>  
+			             <text x=70.6 y=87 style="font-size: 48%;"> (10%)</text>       
+			             <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+
+	               <svg height="135.5px" width="177px" id="34+bottleFeCN" style="position:absolute; display: none; left:430px; top:267px; width: 100px" title="NH4NO3 " >
+                         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+                         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+                         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+                         <text x=40 y=87 style="font-size: 55%;">K </text>
+                         <text x=47 y=91 style="font-size: 54%;"> 4 </text>
+                         <text x=53 y=87 style="font-size: 55%;">Fe </text>
+                         <text x=63 y=87 style="font-size: 55%;"> (CN)</text>
+                         <text x=81 y=91 style="font-size: 54%;"> 6 </text>     
+                         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                   </svg>
+          		 </div>
+
+
+
+          		 <div id="frame12" style="display:none;">
+          		  	<svg style="position:absolute; left:120px; top:440px; width: 562px" title="Table" >
+				          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+				          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+				          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+		               </svg>
+			            <svg height="210px" width="312px" id="44+calmeter" title="Calorimeter" style="position:absolute;left: 130px; top:280px;">
+                         <polyline points="60,9 270,9 290,80 40,80 60,9 " style="fill:#ffffba;stroke:black;stroke-width:1"></polyline>
+                         <polyline points="40,80 19,200 311,200 290,80" style="fill:yellow;stroke:black;stroke-width:1.5"></polyline>
+                         <polyline points="47,90 29,191 301.5,191 284,90 47,90" style="fill:white;stroke:black;stroke-width:1.5"></polyline>
+                         <path d="M 70 109.5 q -12 0  -10 15   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="65" y1="110.3" x2="210" y2="110.3" style="fill:none;stroke:black;stroke-width:2"></line>
+                         <path d="M 208 109.5 q 12 0  10 15   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="60" y1="122" x2="60" y2="155" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <line x1="218" y1="122" x2="218" y2="155" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <path d="M 60 155 q 0 12  10 10   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <path d="M 218 155 q 0 12  -10 10   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="70" y1="165" x2="208" y2="165" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <polyline points="70,109 60,122 60,155 70,165 208,165 218,155 218,122 208,109" style="fill:black;stroke:black;stroke-width:1.4"></polyline>
+                          <ellipse cx="220" cy="40" rx="25" ry=19 style="fill:black;stroke:black;stroke-width:5"/>
+                         <ellipse cx="220" cy="40" rx="19" ry=15 style="fill:white;stroke:black;stroke-width:0.8"/>
+                         <rect x="75" y="120" width="45" height="20" style="fill:white;stroke:black;stroke-width:1"></rect>
+                         <rect x="160" y="120" width="45" height="20" style="fill:white;stroke:black;stroke-width:1"></rect>
+                         <text x="65" y="104" style="font-size: 75%; stroke:black; stroke-width:0.6">Spectrocalorimeter</text>
+                         <text x="65" y="155" style="font-size: 50%; stroke:white; stroke-width:0.5">Optical Density</text>
+                         <text x="160" y="155" style="font-size: 50%; stroke:white; stroke-width:0.5">Wavelenth</text>
+
+                   </svg>
+				           
+                    <button id="44+powerbutton" class="btn btn1" style="position: absolute; display:none; left:350px; top:450px; ">POWER ON</button>
+                    <div id="44+power" class="poweron" style="position:absolute; display: none;  left:380px; top:425px;">                    </div>
+                    <button id="44+wavebutton" class="btnn btn1" style="position: absolute; display:none; left:220px; top:450px; ">SET WAVELENTH</button>
+                    <div id="44+wavelenth" style="position: absolute; display:none; left:300px; top:400px; font-size: 13px;">
+                    	480
+                    </div>	
+                    <div id="44+opacity" style="position: absolute; display:none; left:215px; top:400px; font-size: 13px;">
+                    	0.33
+                    </div>
+                    <svg height="202px" width="50px" id="44+testtube"  style="position:absolute;cursor: pointer; left:590px; top:267px; width: 50px;">
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <line x1= 10.55 y1=50 x2=10.5 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <line x1= 49.35 y1=50 x2=49.35 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <path d="M 10.55 188 q 0 6  8 10   " style=" fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 49.55 188 q 0 6  -7.6 10  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 18.55 198 q 15 6  27 -2  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 12 192 q 16.5 13 36 0" id="44+fill2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1; display: block;"/>
+                             <rect x="11.5" y="100" width="36.6" height="91.9" id="44+fill6" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;"></rect>                 
+                     </svg>
+          		  </div>
+
+
+
+          		  <div id="frame13" style="display:none;">
+		              <h1 id="Namee3" style="position:absolute; left:60px; top:250px; color:blue; display:none; font-size: 16px; text-transform: uppercase; "> perform experment for last amount of solution</h1>
+		           </div>
+
+		           <div id="frame14" style="display:none;">
+	              <svg style="position:absolute; left:120px; top:335px; width: 562px" title="Table" >
+			          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+			          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+			          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+			          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+	              </svg>
+
+	              <!--flask 100ml-->
+
+	              <svg height="213px" width="177px" id="flask100ml25" style="position:absolute; left:125px; top:167px; width: 562px" tittle="flask100ml" >
+	              <ellipse cx="105" cy="18" rx="23" ry="7.5" style="fill:none;stroke:black;stroke-width:1"/>
+	              <path d="M 82 20 q 6 45  -2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <path d="M 128 20 q -6 45  2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <line x1= 80 y1=80 x2=36 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <line x1= 130 y1=80 x2=175 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+	              <ellipse cx="105" cy="193" rx="70" ry="20" style="fill:none;stroke:black;stroke-width:1"/>
+	              <ellipse cx="105" cy="193" rx="17.5" ry="5" id="25+3drop1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="35" ry="10" id="25+3drop2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="52.5" ry="15" id="25+3drop3" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+	              <ellipse cx="105" cy="193" rx="68" ry="18" id="25+3drop4" style="fill:dodgerblue;stroke:black;stroke-width:1;display:none;"/>
+	              <polyline id="25+3dropW1" points="44,172 166,172 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="25+3dropW2" points="49,158 160,158 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="25+3dropW3" points="59,133 150,133 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <polyline id="25+3dropW4" points="68.5,110 141,110 173.5,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+	              <path d="M 102 100 q 15 -3  25 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	              <path d="M 103 110 q 15 -3  26 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	              <path d="M 106 130 q 15 -3  27 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+	               <line x1= 102 y1=100 x2=105 y2=130 style="fill:none;stroke:black;stroke-width:0.4"/>
+	               <text x=105 y=105 style="font-size: 50%;"> 200 ml</text>
+	               <text x=107 y=117 style="font-size: 50%;"> 100 ml</text>
+	               <text x=112 y=138 style="font-size: 50%;"> 50 ml</text>
+	            </svg>
+	            <svg style="position:absolute; left:450px; top:230px;height: 135.5px; width: 100px; cursor: pointer;  "  title="Solid 0.2g" id="25+2" >
+			         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+			         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+			         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                 <text x=39 y=87 style="font-size: 55%;">Solid CuSO</text>
+	                 <text x=89 y=89 style="font-size: 52%;">4</text>    
+			         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+
+	               <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="25+3" title="Waterdrop">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				     <!--Water bottle-->
+
+	               <svg id="25+3W" style="position:absolute; left:450px; top:230px; height: 135.5px; width: 100px; cursor: pointer;display:none;"  title="Water" >
+			         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+			         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+			         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				     <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+	                 <text x=36 y=87 style="font-size: 53%;"> Water(200ml)</text>   
+			         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+                    
+	                 <svg id="25+4H" style="position:absolute; left:450px; top:230px; height: 135.5px; width: 100px; cursor: pointer;display:none;"  title="H2SO4bottle" >
+		                 <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+		                 <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+		                 <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+		                 <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		                 <text x=36 y=87 style="font-size: 64%;">Cons.H SO</text> 
+		                 <text x=71.5 y=90 style="font-size: 52%;">2</text>
+		                 <text x=89.5 y=91 style="font-size: 52%;">4</text>  
+		                 <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	                  </svg>
+          		 </div>
+
+
+          		 <div id="frame15" style="display:none;">
+	          		 	<svg style="position:absolute; left:120px; top:440px; width: 562px" title="Table" >
+				          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+				          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+				          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+		               </svg>
+
+	              		<svg height="213px" width="177px" id="35+flask100ml2" style="position:absolute; left:430px; top:267px; width: 177px" tittle="flask100ml" >
+	              		<ellipse cx="105" cy="18" rx="23" ry="7.5" style="fill:none;stroke:black;stroke-width:1"/>
+	              		<path d="M 82 20 q 6 45  -2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <path d="M 128 20 q -6 45  2 60   " style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <line x1= 80 y1=80 x2=36 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <line x1= 130 y1=80 x2=175 y2=190 style="fill:none;stroke:black;stroke-width:1.4"/>
+		              <ellipse cx="105" cy="193" rx="70" ry="20" style="fill:none;stroke:black;stroke-width:1"/>
+		              <ellipse cx="105" cy="193" rx="17.5" ry="5" id="35+3drop1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="35" ry="10" id="35+3drop2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="52.5" ry="15" id="35+3drop3" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display:none;"/>
+		              <ellipse cx="105" cy="193" rx="69" ry="18" id="35+3drop4" style="fill:dodgerblue;stroke:black;stroke-width:1;display:block;"/>
+		              <polyline id="35+3dropW1" points="44,172 166,172 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="35+3dropW2" points="49,158 160,158 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="35+3dropW3" points="59,133 150,133 173,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: none;"/>
+		              <polyline id="35+3dropW4" points="68.5,110 141,110 173.5,189 37,189" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1;display: block;"/>
+		              <path d="M 102 100 q 15 -3  25 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		              <path d="M 103 110 q 15 -3  26 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		              <path d="M 106 130 q 15 -3  27 0   " style="fill:none;stroke:black;stroke-width:0.5"/>
+		               <line x1= 102 y1=100 x2=105 y2=130 style="fill:none;stroke:black;stroke-width:0.4"/>
+		               <text x=105 y=105 style="font-size: 50%;"> 200 ml</text>
+		               <text x=107 y=117 style="font-size: 50%;"> 100 ml</text>
+		               <text x=112 y=138 style="font-size: 50%;"> 50 ml</text>
+	           	  </svg>
+
+	           	  <svg height="202px" width="50px" id="35+testtube"  style="position:absolute; left:175px; top:267px; width: 50px">
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <line x1= 10.55 y1=50 x2=10.5 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <line x1= 49.35 y1=50 x2=49.35 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <path d="M 10.55 188 q 0 6  8 10   " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 49.55 188 q 0 6  -7.6 10  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 18.55 198 q 15 6  27 -2  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <rect x="12" y="186" width="35" height="6.8" id="35+fill1" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:;display: none;"></rect>
+                            <path d="M 12 192 q 16.5 13 36 0" id="35+fill2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1; display: none;"/>
+                            <rect x="11.5" y="175" width="36.6" height="16.9" id="35+fill3" style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3"></rect>
+                            <rect x="11.5" y="140" width="36.6" height="51.9" id="35+fill4" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>
+                             <rect x="11.5" y="110" width="36.6" height="81.9" id="35+fill5" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>
+                             <rect x="11.5" y="94" width="36.6" height="95.9" id="35+fill6" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;display: none;"></rect>                 
+                     </svg>
+
+                     <svg height="260px" width="200px" id="35+dropper" style="position:absolute; left:670px; top:10px; width: 102px; display: none;">
+	                    <ellipse cx="75" cy="90" rx="24" ry="5" style="fill:black;stroke:black;stroke-width:2"/>
+	                    <ellipse cx="75" cy="117" rx="25" ry="10" style="fill:black;stroke:black;stroke-width:2"/>
+	                    <path d="M 65 43 q 10 -20  20 0   " style="fill:black;stroke:black;stroke-width:1.4"/>
+	                    <rect x=65 y=43 width=20 height=40 style="fill:grey;stroke:black;stroke-width:0.5"/>
+	                    <path d="M 68 55 q 7.5 -10  14 0   " style="fill:black;stroke:black;stroke-width:1.4"/>
+	                    <rect x=69 y=55 width=12 height=30 style="fill:black;stroke:black;stroke-width:0.5"/>
+	                    <rect x=49 y=90 width=52 height=29 style="fill:black;stroke:black;stroke-width:0.5"/>
+	                    <rect x=50 y=92 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=62 y=93 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=74 y=94 width=2.5 height=23 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=86 y=93 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <rect x=98 y=91 width=2.5 height=22 style="fill:grey;stroke:grey;stroke-width:0.5"/>
+	                    <line x1= 69 y1=106 x2=69 y2=225 style="fill:none;stroke:black;stroke-width:1.4"/>
+	                    <line x1= 80 y1=106 x2=80 y2=225 style="fill:none;stroke:black;stroke-width:1.4"/>
+	                    <path d="M 68 225 q 0 6  7 10   " style="fill:dodgerblue;stroke:black;stroke-width:1.4"/>
+	                    <path d="M 81 225 q 0 6  -7 10  " style="fill:dodgerblue;stroke:black;stroke-width:1.4"/>
+	                    <polyline id="35+dropperfill1" points="70,195 78.5,195 78.5,225.5 80,226 75.5,232.5 68.5,226 70,226 70.5,225 70,195  " style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:1"/>
+                         <polyline id="35+dropperfill2"  points="70,225 78.5,225 78.5,225.5 80,226 75.5,232.5 68.5,226 70,223 70.5,225 70,225  " style="display:none;fill:dodgerblue;stroke:dodgerblue;stroke-width:1"/>
+
+                    </svg>
+                     <span id="35+range" style="display: none;">0.0&nbsp&nbsp2.5&nbsp&nbsp5.0&nbsp&nbsp7.5&nbsp&nbsp10<br><input type="range" min="0" max="10" value="0" step="2.5" id="35+dropperMLrange"><button id="35+dropperMLsetup">Take</button></span>
+                     <span id="35+notice" style="display: none;"></span>
+                     <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="35+3drop" title="Waterdrop">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				   <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="35+4drop" title="Waterdrop2">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+				   <svg style="position:absolute; left:254px; top:330px; width:100px; display: none;" id="35+5drop" title="Waterdrop2">
+					    <polyline points="2,10 6,1 10,10" style="fill:dodgerblue;stroke:black;stroke-width:0.3"/>
+					    <path d="M 2 10 q 4 7  8 0   " style="fill:dodgerblue;stroke:black;stroke-width:0.4"/>
+				   </svg>
+
+
+				   <svg height="135.5px" width="177px" id="35+bottleNH4" style="position:absolute; display: none; left:430px; top:267px; width: 100px" title="NH4NO3 " >
+				         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+				         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+				         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+				         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+			             <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+			             <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+		                 <text x=36 y=87 style="font-size: 55%;">NH </text>
+		                 <text x=50 y=91 style="font-size: 40%;"> 4 </text>
+		                 <text x=53.5 y=87 style="font-size: 55%;">NO </text>
+			             <text x=67 y=90 style="font-size: 40%;"> 3</text>  
+			             <text x=70.6 y=87 style="font-size: 48%;"> (10%)</text>       
+			             <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+			             <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+		                 <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+	               </svg>
+
+	               <svg height="135.5px" width="177px" id="35+bottleFeCN" style="position:absolute; display: none; left:430px; top:267px; width: 100px" title="NH4NO3 " >
+                         <path d="M 48 10 q 17 -6  32.5 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <polyline points="48,10 55,20 75,20 82,10" style="fill:none;stroke:black;stroke-width:1"/>
+                         <polyline points="55,20 55,30 75,30 75,20" style="fill:none;stroke:black;stroke-width:1"/>
+                         <path d="M 55 30 q -6 1  -10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 75 30 q 6 1  10 10   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 45 40 q -10 1  -10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 85 40 q 10 5  10 15   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 42 40.5 q 22 -7 43 0   " style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <line x1= 35.1 y1=55 x2=35.5 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <line x1= 95.1 y1=55 x2=94.7 y2=115 style="fill:none;stroke:black;stroke-width:1.4"/>
+                         <path d="M 35.45 115 q 5 20  20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <path d="M 95.5 115 q -5 20  -20 20   " style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <line x1= 55.1 y1=135 x2=74.5 y2=135 style="fill:#FFFAFA;stroke:black;stroke-width:1.4"/>
+                         <rect x=35 y=75 width=60 height=19 style="fill:white;stroke:black;stroke-width:0.8"/>
+                         <text x=40 y=87 style="font-size: 55%;">K </text>
+                         <text x=47 y=91 style="font-size: 54%;"> 4 </text>
+                         <text x=53 y=87 style="font-size: 55%;">Fe </text>
+                         <text x=63 y=87 style="font-size: 55%;"> (CN)</text>
+                         <text x=81 y=91 style="font-size: 54%;"> 6 </text>     
+                         <rect x=37 y=95 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=38 y=103 width=55 height=19 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=47 y=122 width=35 height=10.6 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=44.3 y=120 width=45 height=8 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                         <rect x=37 y=55 width=55 height=20 style="fill:#FFFAFA;stroke:#FFFAFA;stroke-width:0.8"/>
+                   </svg>
+          		 </div>
+
+
+
+          		 <div id="frame16" style="display:none;">
+          		  	<svg style="position:absolute; left:120px; top:440px; width: 562px" title="Table" >
+				          <polyline points="30,1 530,1 560,50 1,50 30,1" style="fill:brown;stroke:black;stroke-width:4"/>
+				          <polyline points="1,50 1,60 560.6,60 561.8,50" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="7,58 7,173 17,173 17,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="35,60.1 35,120 45,120, 45,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+				          <polyline points="537,58 537,173 547,173 547,58" style="fill:brown;stroke:black;stroke-width:3"/>
+				          <polyline points="505,60.1 507,120 517,120, 517,60.1" style="fill:brown;stroke:black;stroke-width:2.4"/>
+		               </svg>
+			            <svg height="210px" width="312px" id="45+calmeter" title="Calorimeter" style="position:absolute;left: 130px; top:280px;">
+                         <polyline points="60,9 270,9 290,80 40,80 60,9 " style="fill:#ffffba;stroke:black;stroke-width:1"></polyline>
+                         <polyline points="40,80 19,200 311,200 290,80" style="fill:yellow;stroke:black;stroke-width:1.5"></polyline>
+                         <polyline points="47,90 29,191 301.5,191 284,90 47,90" style="fill:white;stroke:black;stroke-width:1.5"></polyline>
+                         <path d="M 70 109.5 q -12 0  -10 15   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="65" y1="110.3" x2="210" y2="110.3" style="fill:none;stroke:black;stroke-width:2"></line>
+                         <path d="M 208 109.5 q 12 0  10 15   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="60" y1="122" x2="60" y2="155" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <line x1="218" y1="122" x2="218" y2="155" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <path d="M 60 155 q 0 12  10 10   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <path d="M 218 155 q 0 12  -10 10   " style="fill:black;stroke:black;stroke-width:1.4"></path>
+                         <line x1="70" y1="165" x2="208" y2="165" style="fill:none;stroke:black;stroke-width:1.4"></line>
+                         <polyline points="70,109 60,122 60,155 70,165 208,165 218,155 218,122 208,109" style="fill:black;stroke:black;stroke-width:1.4"></polyline>
+                          <ellipse cx="220" cy="40" rx="25" ry=19 style="fill:black;stroke:black;stroke-width:5"/>
+                         <ellipse cx="220" cy="40" rx="19" ry=15 style="fill:white;stroke:black;stroke-width:0.8"/>
+                         <rect x="75" y="120" width="45" height="20" style="fill:white;stroke:black;stroke-width:1"></rect>
+                         <rect x="160" y="120" width="45" height="20" style="fill:white;stroke:black;stroke-width:1"></rect>
+                         <text x="65" y="104" style="font-size: 75%; stroke:black; stroke-width:0.6">Spectrocalorimeter</text>
+                         <text x="65" y="155" style="font-size: 50%; stroke:white; stroke-width:0.5">Optical Density</text>
+                         <text x="160" y="155" style="font-size: 50%; stroke:white; stroke-width:0.5">Wavelenth</text>
+
+                   </svg>
+				           
+                    <button id="45+powerbutton" class="btn btn1" style="position: absolute; display:none; left:350px; top:450px; ">POWER ON</button>
+                    <div id="45+power" class="poweron" style="position:absolute; display: none;  left:380px; top:425px;">                    </div>
+                    <button id="45+wavebutton" class="btnn btn1" style="position: absolute; display:none; left:220px; top:450px; ">SET WAVELENTH</button>
+                    <div id="45+wavelenth" style="position: absolute; display:none; left:300px; top:400px; font-size: 13px;">
+                    	480
+                    </div>	
+                    <div id="45+opacity" style="position: absolute; display:none; left:215px; top:400px; font-size: 13px;">
+                    	0.44
+                    </div>
+                    <svg height="202px" width="50px" id="45+testtube"  style="position:absolute;cursor: pointer; left:590px; top:267px; width: 50px;">
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <ellipse cx="30" cy="50" rx="19" ry="8" style="fill:none;stroke:black;stroke-width:2"/>
+                            <line x1= 10.55 y1=50 x2=10.5 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <line x1= 49.35 y1=50 x2=49.35 y2=188 style="fill:none;stroke:black;stroke-width:1.4"/>
+                            <path d="M 10.55 188 q 0 6  8 10   " style=" fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 49.55 188 q 0 6  -7.6 10  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 18.55 198 q 15 6  27 -2  " style="fill:none;stroke:black;stroke-width:1.9"/>
+                            <path d="M 12 192 q 16.5 13 36 0" id="44+fill2" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:1; display: block;"/>
+                             <rect x="11.5" y="100" width="36.6" height="91.9" id="44+fill6" style="fill:dodgerblue;stroke:dodgerblue;stroke-width:0.3;"></rect>                 
+                     </svg>
+          		  </div>
+  <div id="frame17" style="display: none; background-color: dodgerblue;">
+            <h1 style="font-size: 40px; text-align: center; color: purple;">OBSERVATION TABLE</h1><br>
+            <h3>Fill Optical density  in simulator and then press fill table buttton</h3>
+            <table border="10" cellspacing="0" width="750px" height="300px" cellpadding="8%" align="center">
+            <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S.No.</td>
+            <td>    Volume of CuSO<sub>4</sub>.5H<sub>2</sub>O<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Solution(ml)</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Optical density</td>
+
+            <td>Average<br>Optical density</td>
+            </tr>
+            <tr>
+            <td align="center">1.</td><td align="center">2.5</td><td><input type="Number" id="A1" step="any"></input></td><td rowspan="4"><div id="B1"></div></td>
+            </tr>
+            <tr>
+            <td align="center">2.</td><td align="center">5.0</td><td><input id="A2" type="Number" step="any"></input></td>
+            </tr>
+            <tr>
+            <td align="center">3.</td><td align="center">7.5</td><td><input id="A3" type="Number" step="any"></input></td>
+            </tr>
+            <tr>
+            <td align="center">4.</td><td align="center">10.0</td><td><input id="A4" type="Number" step="any"></input></td>
+            </table>
+            <br><br>
+            <div id="55+hint" style="position: absolute; display: none;left:500px;top:550px; font-size: 15px; ">
+            	 Fill the Observation Table First Then Click the button.
+            </div>
+            <button id="55+cal">FILL TABLE</button>
+        </div>
+
+        <div id="frame18" style="display: none; font-size: 40px; background-color: dodgerblue;">
+		<div id="message" style="font-size: 16px; position: relative; text-align: center;">
+        		Note down the volume of <strong>CuSO<sub>4</sub></strong> against the <strong> average Optical density.</strong>
+        	</div>
+            <button id="gr3" >PLOT GRAPH</button>
+            <div id="gr" style=" background-color: dodgerblue;"></div>
+             <button id="ideal" style="position: absolute;top: 500px; display: none;">Ideal graph</button>
+            <div id="gr2" style=" background-color: dodgerblue;"></div>
+            <div id="dialog3" title="Question 3:-" style="display:;">
+            <p>Select the correct mean value?</p>
+            <form>
+            <input type="radio" name="r" onclick="myfunction3()">0.500</input><br>
+            <input type="radio" name="r" onclick="mfunction3()">0.275</input><br>
+            <input type="radio" name="r" onclick="myfunction3()">0.367</input><br>
+            <input type="radio" name="r" onclick="myfunction3()">None of these</input>
+            <br><br>
+            <p id="m3"></p>
+          </form>
+          </div>  
+
+           <div id="dialog5" title="Question4 :-" style="display: none;">
+            <p>Is the graph straight line?</p>
+            <form>
+            <input type="radio" name="r" onclick="myfunction4()">NO</input><br>
+            <input type="radio" name="r" onclick="mfunction4()">YES</input><br>
+            <br><br>
+            <p id="m4"></p>
+          </form>
+          </div>  
+        </div>
+
+         <div id="frame19" style="position: absolute; display: none; ">
+	         <div id="dialog4" title="Question 5:-">
+	            <p>Choose correct the formula</p>
+	            <form>
+		            <input type="radio" name="r" onclick="myfunction5()">x(calculated from graph) X wt. of Cu/wt. of  CuSO<sub>4</input><br>
+		            <input type="radio" name="r" onclick="mfunction5()">x(calculated from graph) X wt. of Cu/wt. of  CuSO<sub>4</sub>.5H<sub>2</sub>O</input><br>
+		            <br><br>
+		            <p id="m5"></p>
+	           </form>
+           </div>
+            <div id="que" style="display:; position: relative; top: 10px; left: 20px;">
+            	<p style="font-size: 16px;"> <strong style="font-size: 18px;"> Question.</strong>  If the Strength of the solution is 4gm/lit.Then how much amount of<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Copper is present in Solution ? </p><br><br>
+                <span>
+	              Enter your answer<input type="Number" step="any" id="ans"><br><br>
+	              <button id="checkans">Check</button>
+	              </span>
+               <p id="displayans" style="display:; position: relative; left: 20px; top:20px;"></p>
+               <button id="seesoln" style="display: none; position: relative; left: 30px; top:80px;">See solution</button>
+               <div id="displaysoln" style="display: none; position: relative;font-size:17px;  left: 30px; top:90px;">
+                 <h4>Strength of solution = 4gm/lit<br>So 1ml soln contains 0.004 g CuSO<sub>4</sub><br>Hence 6.25 ml contains 0.025 g.<br>Amount of Cu present =0.025(x) X 63.54(wt. of copper) / 249.65(wt. of CuSO<sub>4</sub>.5H<sub>2</sub>O ) <br>=6.4 mg </h4>
+              </div>
+           
+            </div>
+        </div>
+        
+       
+          		  <div id="opacity" style="position: absolute; display:none; left:90px; top:100px; font-size: 12px;">
+                    	NOTE DOWN THE READING OF OPACITY<br> FOR CALCULATIONS & OBSERVATION TABLE
+
+                    </div>
+      
+         <!-- nextButton -->
+            <div id="nav">
+               <img id="nextButton" onclick="navNext()" src="images/Next.png" />
+            </div>
+       </div>
+       <!--Blinking Arrow  --> 
+       <img class ="" id="arrow1" style="display: none;" src="images/arrow1.png"/>
+    </body>
+  </html>
