@@ -6,9 +6,9 @@
 <b> Determination of copper by Spectrocolorimeter.<a name="top"></a></b> <br>
 </p>
 
-<b>Discipline | <b>chemical science</b>
+<b>Discipline | <b>Civil Engineering</b>
 :--|:--| 
-<b> Lab | <b> chemistry Lab.</b>
+<b> Lab | <b> Environment Engineering Lab.</b>
 <b> Experiment| <b> Determination of copper by Spectrocolorimeter.</b>
 
 
@@ -28,7 +28,7 @@ Sr. No |	Learning Objective	| Cognitive Level | Action Verb
 3.| User will be able to: <br>Apply the experimental conditions by setting maximum wavelength and placing sample in spectro calorimeter <br> | Apply  | Apply
 4.| User will be able to: <br>perform experiment and record the reading for further calculation. <br> |  Apply | Calculate
 5.| User will be able to: <br>sketch the calibration graph <br> |  Apply | sketch
-6.| User will be able to: <br>determine the concentration of copper in given sample <br> |  Evaluate | Determine
+6.| User will be able to: <br>Determine the concentration of copper in given sample <br> |  Evaluate | Determine
 
 
 
