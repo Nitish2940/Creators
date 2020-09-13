@@ -8,23 +8,23 @@
 
 <b>Discipline | <b>chemical science</b>
 :--|:--| 
-  <b> Lab | <b> chemistry Lab.</b>
-    <b> Experiment| <b> Determination of copper by Spectrocolorimeter.</b>
+<b> Lab | <b> chemistry Lab.</b>
+<b> Experiment| <b> Determination of copper by Spectrocolorimeter.</b>
 
 
 
 
 <a name="LO"></a>
 #### 1. Focus Area : 
-                                 1.Reinforce theoretical concept
-                                 2.Experimentation
+1.Reinforce theoretical concept
+2.Experimentation
  #### 2. Learning Objectives and Cognitive Level
 
 
 Sr. No |	Learning Objective	| Cognitive Level | Action Verb
 :--|:--|:--|:-:
-1.| User will be able to: <br>identify the apparatus and reagents  being used in the experiment. <br>  | Remember   |Identify
-2.| User will be able to: <br>describe  the "preparation of sample" for the experiment. <br> | Understand | Explain 
+1.| User will be able to: <br>Identify the apparatus and reagents  being used in the experiment. <br>  | Remember   |Identify
+2.| User will be able to: <br>Explain  the "preparation of sample" for the experiment. <br> | Understand | Explain 
 3.| User will be able to: <br>Apply the experimental conditions by setting maximum wavelength and placing sample in spectro calorimeter <br> | Apply  | Apply
 4.| User will be able to: <br>perform experiment and record the reading for further calculation. <br> |  Apply | Calculate
 5.| User will be able to: <br>sketch the calibration graph <br> |  Apply | sketch
