@@ -8,7 +8,7 @@ The objective of this lab to determine the concentration of copper in given solu
 <h5> About the Experiment: </h5>
 This experiment is about calculation of copper concentration by Spectrocolorimeter.
 <h5> Target Audience: </h5>
- UG studens of B.tech 1st year, B.tech Environment Engineering
+ UG studens of B.tech 1st year, B.tech Environmental Engineering Students 
 <h5> Course Alignment: </h5>
 B.tech,B.Sc  
 <h5> Universities Mapped : </h5>
