@@ -40,8 +40,7 @@ Sr. No |	Learning Objective	| Cognitive Level | Action Verb
 <hr>
 
 <a name="IS"></a>
-#### 3. Instructional Strategy
-###### Name of Instructional Strategy :  
+#### 3. Instructional Strategy  
   <u> Expository
 ###### Assessment Method:
  Formative Assessment
