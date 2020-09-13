@@ -13,6 +13,7 @@ This experiment is about calculation of copper concentration by Spectrocolorimet
 B.tech,B.Sc  
 <h5> Universities Mapped : </h5>
 AKTU Lucknow
+ 
 <b>Name of Developer | <b> Manoj Kumar Yadava
 :--|:--|
 <b> Institute | <b> Rajkiya Engineering College Banda
