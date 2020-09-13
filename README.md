@@ -1,5 +1,5 @@
 ## Introduction (Round 0)
-<b>Discipline | <b>Chemical Engineering 
+<b>Discipline | <b>Civil Engineering 
 :--|:--|
 <b> Lab | <b> Environmental Engineering lab
 <b> Experiment|     <b> Determination of copper by Spectrocolorimetry.
@@ -8,11 +8,11 @@ The objective of this lab to determine the concentration of copper in given solu
 <h5> About the Experiment: </h5>
 This experiment is about calculation of copper concentration by Spectrocolorimeter.
 <h5> Target Audience: </h5>
- UG .
+ UG studens of B.tech 1st year, B.tech Environment Engineering
 <h5> Course Alignment: </h5>
-The experiment is design for first year UG students of the university
+B.tech,B.Sc  
 <h5> Universities Mapped : </h5>
-AKTU
+AKTU Lucknow
 <b>Name of Developer | <b> Manoj Kumar Yadava
 :--|:--|
 <b> Institute | <b> Rajkiya Engineering College Banda
@@ -31,8 +31,7 @@ AKTU
 
 SrNo | Name | Faculty or Student | Department| Institute | Email id
 :--|:--|:--|:--|:--|:--|
-1 | Manoj Kumar Yadava | Faculty | Applied Science and Humanities | Rajkiya Engineering College Banda, Banda | manojyadava16@gmail.com
-2 | Nitish Kumar | Student | Mechanical Engineering| Rajkiya Engineering College Banda, Banda |nitishkumar29400@gmail.com
-3 | Amitabh Shahi | Student | Information technology | Rajkiya Engineering College Banda, Banda |amitabhshahi09@gmail.com
-4 | Pranjul Purwar | Student |  Information technology | Rajkiya Engineering College Banda, Banda |pranjulpurwar7@gmail.com
-5 | Akash Sachan | Student | Information technology | Rajkiya Engineering College Banda, Banda |akashsachanboss@gmail.com
+1 | Nitish Kumar | Student | Mechanical Engineering| Rajkiya Engineering College Banda, Banda |nitishkumar29400@gmail.com
+2 | Amitabh Shahi | Student | Information technology | Rajkiya Engineering College Banda, Banda |amitabhshahi09@gmail.com
+3 | Pranjul Purwar | Student |  Information technology | Rajkiya Engineering College Banda, Banda |pranjulpurwar7@gmail.com
+4 | Akash Sachan | Student | Information technology | Rajkiya Engineering College Banda, Banda |akashsachanboss@gmail.com
